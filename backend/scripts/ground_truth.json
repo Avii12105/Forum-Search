@@ -1,0 +1,18 @@
+[
+  {
+    "query": "fastapi dependency injection",
+    "expected_url_snippet": "fastapi.tiangolo.com"
+  },
+  {
+    "query": "npm ERR! code ERESOLVE",
+    "expected_url_snippet": "stackoverflow.com/questions"
+  },
+  {
+    "query": "react useEffect infinite loop",
+    "expected_url_snippet": "react.dev"
+  },
+  {
+    "query": "git reset hard vs soft",
+    "expected_url_snippet": "stackoverflow.com/questions"
+  }
+]

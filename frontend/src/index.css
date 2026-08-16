@@ -1,0 +1,46 @@
+:root {
+  --bg-main: #0E1116;
+  --bg-surface: #151921;
+  --bg-input: #1A1F29;
+  --border-color: #2D3342;
+  --border-hover: #464F63;
+  --text-main: #E2E8F0;
+  --text-muted: #8B949E;
+  --link-blue: #58A6FF;
+  --success-green: #3FB950;
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  font-family: var(--font-sans);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+}
+
+a {
+  color: var(--link-blue);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+input, button {
+  font-family: inherit;
+}
+
+/* Custom shimmer animation for the loading skeletons */
+@keyframes shimmer {
+  0% { background-position: -1000px 0; }
+  100% { background-position: 1000px 0; }
+}

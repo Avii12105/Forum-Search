@@ -1,0 +1,49 @@
+version: '3.8'
+
+services:
+  # 1. PostgreSQL Database
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: forumsearch
+    ports:
+      - "5433:5432" # Mapped to 5433 locally so it doesn't conflict with your Windows Postgres installation
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  # 2. Redis Cache
+  redis:
+    image: redis:alpine
+    ports:
+      - "6380:6379" # Mapped to 6380 locally
+
+  # 3. FastAPI Backend
+  backend:
+    build: ./backend
+    ports:
+      - "8000:8000"
+    environment:
+      # Notice how we use the service names 'postgres' and 'redis' instead of 'localhost'
+      - DATABASE_URL=postgresql+asyncpg://postgres:postgres@postgres:5432/forumsearch
+      - REDIS_URL=redis://redis:6379/0
+      - FRONTEND_CORS_ORIGIN=http://localhost:5173
+    depends_on:
+      - postgres
+      - redis
+    volumes:
+      # Mount a volume for ChromaDB so vector embeddings persist between container restarts
+      - backend_chroma:/app/chroma_db
+
+  # 4. React Frontend
+  frontend:
+    build: ./frontend
+    ports:
+      - "5173:5173"
+    depends_on:
+      - backend
+
+volumes:
+  postgres_data:
+  backend_chroma:

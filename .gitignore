@@ -1,0 +1,55 @@
+# ========================
+# OS & IDE
+# ========================
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+
+# ========================
+# Node / Frontend
+# ========================
+frontend/node_modules/
+frontend/dist/
+frontend/build/
+frontend/.npm/
+frontend/.eslintcache
+
+# ========================
+# Python / Backend
+# ========================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+backend/venv/
+backend/.venv/
+backend/env/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# ========================
+# Environment Variables
+# ========================
+.env
+.env.local
+.env.*.local
+
+# ========================
+# Data & Search Indexes
+# ========================
+# Ignore local databases and populated search indexes 
+# but keep the directories in version control
+data/*
+!data/.gitkeep
+search_index/*
+!search_index/.gitkeep
+
+# ========================
+# Redis / Celery (Optional)
+# ========================
+celerybeat-schedule
+dump.rdb
