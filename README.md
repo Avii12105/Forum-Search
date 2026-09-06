@@ -20,7 +20,7 @@ Make sure the following are installed:
 
 ```bash
 git clone https://github.com/Avii12105/Forum-Search.git
-cd forum-search-engine
+cd Forum-Search
 ```
 
 ### 2. Build and start all services
